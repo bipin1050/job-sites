@@ -1,5 +1,5 @@
 import useFetch from "../../../data/useFetch";
-import JobList from "./jobList";
+import JobList from "./joblist";
 
 type DisplayJobsProps = {
   searchfields: string[];
