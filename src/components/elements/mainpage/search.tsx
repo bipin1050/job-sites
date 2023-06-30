@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Crossbar from "../../UI/crossbar";
-
+import DisplayJobs from "./displayJobs";
 
 type FilterItemsProps = {
   searchfields: string[];
@@ -11,7 +11,7 @@ const FilterItems = ({ searchfields, handleRemoveField }: FilterItemsProps) => {
     <>
       {searchfields.map((searchfield, id) => {
         return (
-          <div className="flex mr-2 bg-[#dbf6f6] rounded-sm">
+          <div key={id} className="flex mr-2 bg-[#dbf6f6] rounded-sm">
             <span className="px-1 whitespace-nowrap">{searchfield}</span>
             <button
               onClick={(event) => {
@@ -27,7 +27,6 @@ const FilterItems = ({ searchfields, handleRemoveField }: FilterItemsProps) => {
 };
 
 const Search = () => {
-
   const [search, setSearch] = useState("");
   const [searchfields, setSearchfields] = useState<string[]>([]);
 
@@ -45,39 +44,41 @@ const Search = () => {
     );
   };
 
-
   return (
-    <div className="absolute -top-8 h-16 w-full">
-      <div className=" w-[80%] mx-auto px-8 bg-white">
-        <div className="flex items-center">
-          <FilterItems
-            searchfields={searchfields}
-            handleRemoveField={handleRemoveField}
-          />
-          <input
-            className="h-16 w-full outline-none"
-            onChange={(e) => {
-              setSearch(e.target.value);
-            }}
-            onKeyDown={handleKeypress}
-            value={search}
-            placeholder={!searchfields.length ? "Search Jobs.." : ""}
-          />
-          {searchfields.length ? (
-            <button
-              className="ml-2"
-              onClick={() => {
-                setSearchfields([]);
-              }}>
-              Clear
-            </button>
-          ) : (
-            <button></button>
-          )}
+    <>
+      <div className="absolute -top-8 h-16 w-full">
+        <div className=" w-[80%] mx-auto px-8 bg-white">
+          <div className="flex items-center">
+            <FilterItems
+              searchfields={searchfields}
+              handleRemoveField={handleRemoveField}
+            />
+            <input
+              className="h-16 w-full outline-none"
+              onChange={(e) => {
+                setSearch(e.target.value);
+              }}
+              onKeyDown={handleKeypress}
+              value={search}
+              placeholder={!searchfields.length ? "Search Jobs.." : ""}
+            />
+            {searchfields.length ? (
+              <button
+                className="ml-2"
+                onClick={() => {
+                  setSearchfields([]);
+                }}>
+                Clear
+              </button>
+            ) : (
+              <button></button>
+            )}
+          </div>
         </div>
       </div>
-    </div>
+      <DisplayJobs searchfields={searchfields} />
+    </>
   );
-}
+};
 
-export default Search
+export default Search;
