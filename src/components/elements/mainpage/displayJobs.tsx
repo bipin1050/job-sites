@@ -1,5 +1,5 @@
 import useFetch from "../../../data/useFetch";
-import Joblist from "./jobList";
+import JobList from "./jobList";
 
 type DisplayJobsProps = {
   searchfields: string[];
@@ -41,8 +41,8 @@ const DisplayJobs = ({ searchfields }: DisplayJobsProps) => {
   return (
     <div>
       {searchfields.length
-        ? <Joblist jobs={filteredJobs}/>
-        : <Joblist jobs={jobs}/>
+        ? <JobList jobs={filteredJobs}/>
+        : <JobList jobs={jobs}/>
       }
     </div>
   );

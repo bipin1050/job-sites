@@ -17,7 +17,7 @@ const DateDisplay = ({ date }: { date: number }) => {
   return <>{timeDiff}d ago</>;
 };
 
-const Joblist = ({ jobs }: JoblistProps) => {
+const JobList = ({ jobs }: JoblistProps) => {
   return (
     <div className="pt-16">
       {jobs.length ? (
@@ -76,4 +76,4 @@ const Joblist = ({ jobs }: JoblistProps) => {
   );
 };
 
-export default Joblist;
+export default JobList;
