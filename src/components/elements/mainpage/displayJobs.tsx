@@ -25,14 +25,18 @@ const DisplayJobs = ({ searchfields }: DisplayJobsProps) => {
 
     if(isLoading){
         return (
-            <div>Loading...</div>
-        )
+          <div className="w-[70%] mx-auto p-4 grid grid-cols-1 text-center my-3 py-3 shadow-md rounded-md pt-16">
+            Loading...
+          </div>
+        );
     }
     else if(error?.length){
         console.log(error)
-        return(
-            <div>Error Fetching the Jobs</div>
-        )
+        return (
+          <div className="w-[70%] mx-auto p-4 grid grid-cols-1 text-center my-3 py-3 shadow-md rounded-md pt-16">
+            Error Fetching the Jobs
+          </div>
+        );
     }
   return (
     <div>

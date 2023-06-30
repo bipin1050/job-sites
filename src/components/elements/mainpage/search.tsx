@@ -11,8 +11,10 @@ const FilterItems = ({ searchfields, handleRemoveField }: FilterItemsProps) => {
     <>
       {searchfields.map((searchfield, id) => {
         return (
-          <div key={id} className="flex mr-2 bg-[#dbf6f6] rounded-sm">
-            <span className="px-1 whitespace-nowrap">{searchfield}</span>
+          <div key={id} className="flex mr-2 bg-[#e3f5f5] rounded-sm">
+            <span className="px-1 whitespace-nowrap font-semibold text-[#64babb]">
+              {searchfield}
+            </span>
             <button
               onClick={(event) => {
                 handleRemoveField(searchfield);
@@ -47,14 +49,14 @@ const Search = () => {
   return (
     <>
       <div className="absolute -top-8 h-16 w-full">
-        <div className=" w-[80%] mx-auto px-8 bg-white">
+        <div className=" w-[70%] mx-auto px-8 bg-white shadow-md rounded-md">
           <div className="flex items-center">
             <FilterItems
               searchfields={searchfields}
               handleRemoveField={handleRemoveField}
             />
             <input
-              className="h-16 w-full outline-none"
+              className="h-16 w-full outline-none text-[#64babb]"
               onChange={(e) => {
                 setSearch(e.target.value);
               }}
@@ -64,7 +66,7 @@ const Search = () => {
             />
             {searchfields.length ? (
               <button
-                className="ml-2"
+                className="ml-2 font-semibold text-[#64babb] text-sm"
                 onClick={() => {
                   setSearchfields([]);
                 }}>
