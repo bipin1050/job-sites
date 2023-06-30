@@ -1,8 +1,11 @@
+import Search from "../search/search";
 
 const JobList = () => {
   return (
-    <div className='bg-slate-700'></div>
-  )
+    <div className="relative">
+      <Search />
+    </div>
+  );
 }
 
 export default JobList
